@@ -1,7 +1,14 @@
-# Bilibili Subtitles Converter
-Parses JSON subtitles used on bilibili.com and converts it to SRT format.
+# JSON to SRT converter
+Converts JSON subtitles used on bilibili.com to SRT format.
 
-### JSON example:
+[Open in browser](https://self-related.github.io/bilibili-subtitles-converter/)
+
+[JSON example](/subs-example.json)
+
+### Screenshots:
+<img width="519"  alt="Screenshot From 2026-06-26 15-57-24" src="https://github.com/user-attachments/assets/bd85e116-b8ac-438b-b271-bef1ae01e3fa" />
+
+### JSON input example:
 ```
 {
   "body": [
