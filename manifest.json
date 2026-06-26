@@ -1,7 +1,7 @@
 {
     "short_name": "JSON_SRT_conv",
-    "name": "Bilibili subtitles converter",
-    "start_url": "/bilibili-subtitles-converter",
+    "name": "JSON to SRT subtitles converter",
+    "start_url": "/json-to-srt-converter-pwa",
     "display": "standalone",
     "theme_color": "black",
     "background_color": "black",
