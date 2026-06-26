@@ -45,3 +45,13 @@ export function convertFromJson(json, language) {
 
     return `WEBVTT\nKind: captions\nLanguage: ${language}\n\n` + convertedTimelines.join('\n\n');
 }
+
+
+/**@type { function(string): string } */
+export function getBaseName(name) {
+    const baseNameArr = name.split('.');
+
+    if (baseNameArr.length === 1) return name; // if no extension return back
+
+    return baseNameArr.slice(0, -1).join('.');
+}

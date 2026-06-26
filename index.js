@@ -1,4 +1,4 @@
-import { convertFromJson } from "./scripts/converter.js";
+import { convertFromJson, getBaseName } from "./scripts/converter.js";
 import { getAllElements } from "./scripts/dom-handler.js";
 
 
@@ -32,7 +32,8 @@ downloadBtn.onclick = () => {
         language = '';
     }
     
-    downloadBtn.download = fileInput.files[0].name.slice(0, -5) + language + ".srt";
+    const baseName = getBaseName(fileInput.files[0].name);
+    downloadBtn.download = baseName + ".srt";
     downloadBtn.href = URL.createObjectURL(downloadBlob);
 };
 
