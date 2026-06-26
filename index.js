@@ -38,7 +38,7 @@ langInput.addEventListener('input', (event) => {
 
 window.addEventListener('load', async () => {
     try {
-        navigator.serviceWorker.register("/scripts/cache-worker.js");
+        navigator.serviceWorker.register("/bilibili-subtitles-converter/scripts/cache-worker.js");
         console.log("Cache worker registered");
     } catch (err) {
         console.error("Can't register cache worker. " + err);
