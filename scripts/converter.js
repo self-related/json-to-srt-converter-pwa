@@ -1,9 +1,10 @@
 // @ts-check
 
 /** Types
- * @typedef {{ from: number, to: number, content: string }} Timeline - timelines in JSON's body array
- * @typedef {{ body: Timeline[] }} JsonSubs - type for JSON
+ * @typedef {{ from: number, to: number, content: string }} TimelineObj - timelines in JSON's body array
+ * @typedef {{ body: TimelineObj[] }} JsonSubs - type for JSON
  */
+
 
 
 /**@type { function(number): string } */
@@ -24,6 +25,7 @@ function getFullTimeFromSeconds(timeInSeconds) {
  
     return `${hoursStr}:${minutesStr}:${secondsStr}.${milisStr}`;
 }
+
 
 
 /**@type { function(string, string): string }*/
