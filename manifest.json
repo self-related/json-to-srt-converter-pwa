@@ -1,0 +1,15 @@
+{
+    "short_name": "JSON_SRT_conv",
+    "name": "Bilibili subtitles converter",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "black",
+    "background_color": "black",
+    "icons": [
+        {
+            "src": "./icons/pwa-icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
