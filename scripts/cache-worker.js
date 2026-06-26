@@ -24,16 +24,28 @@ async function cacheFirst(request) {
 
     // if response not matched, fetch and add to cache as well
     try {
-        const response = await fetch(request);
+        let response = await fetch(request);
+
+        const spoofedHeaders = new Headers(response.headers);
+        spoofedHeaders.delete('cache-control');
+        spoofedHeaders.delete('expires')
+
+        const blob = await response.blob();
+        const spoofedResponse = new Response(blob, { 
+            status: response.status, 
+            statusText: response.statusText, 
+            headers: spoofedHeaders 
+        });
+        response = spoofedResponse; // spoof response
+        
         if (response.ok) {
             const cache = await caches.open(pwaCache);
             cache.put(request, response.clone());
         }
         return response;
     } catch(error) {
-        return Response.error();
+        return responseCached || Response.error();
     }
-
 }
 
 
