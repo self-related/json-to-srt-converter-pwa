@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bilibili subtitle converter</title>
+    <title>Bilibili subtitles converter</title>
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
     <main>
         <div class="app">
             <div class="section file-picker">
-                <input type="file" id="file-input">
-                <div class="file-picker__panel">
-                    <label for="lang-input">lang
-                        <input type="text" id="lang-input" value="en">
-                    </label>
-                    <button class="file-picker__convert-btn" id="convert-btn">Convert</button>
-                </div>
+                <label for="lang-input">Language:
+                    <input type="text" id="lang-input" value="en" maxlength="5">
+                </label>
+                <label for="file-input">
+                    <div class="custom-file-selector-button">Select File</div>
+                    <input type="file" id="file-input" required>
+                </label>
+                <button class="file-picker__convert-btn" id="convert-btn">Convert</button>
             </div>
 
             <div class="section result-wrap">
