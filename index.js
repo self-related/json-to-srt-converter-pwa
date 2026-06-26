@@ -16,7 +16,7 @@ const langInput = document.getElementById("lang-input");
 
 let downloadBlob = new Blob();
 let convertedSrt = "";
-let language = "";
+let language = langInput.value;
 
 
 /**@type {string[]} */
