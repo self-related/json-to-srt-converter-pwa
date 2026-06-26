@@ -1,5 +1,7 @@
 # Bilibili Subtitles Converter
-Converts JSON subtitles used on bilibili.com to SRT format. **Works offline** after installing as a PWA app.
+Converts JSON subtitles used on bilibili.com to SRT format. 
+
+**Works offline** after installing as a PWA app. You should open it at least once on mobile or refresh it once if on PC.
 
 [Open in browser or install PWA app](https://self-related.github.io/json-to-srt-converter-pwa/)
 
