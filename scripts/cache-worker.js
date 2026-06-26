@@ -1,14 +1,14 @@
 const pwaCache = "pwa_cache";
 const precachedResources = [
-    "/bilibili-subtitles-converter/",
-    "/bilibili-subtitles-converter/index.html",
-    "/bilibili-subtitles-converter/index.js",
-    "/bilibili-subtitles-converter/styles.css",
-    "/bilibili-subtitles-converter/manifest.json",
-    "/bilibili-subtitles-converter/icons/pwa-icon-512.png",
-    "/bilibili-subtitles-converter/scripts/converter.js",
-    "/bilibili-subtitles-converter/scripts/dom-handler.js",
-    "/bilibili-subtitles-converter/scripts/cache-worker.js"
+    "/json-to-srt-converter-pwa/",
+    "/json-to-srt-converter-pwa/index.html",
+    "/json-to-srt-converter-pwa/index.js",
+    "/json-to-srt-converter-pwa/styles.css",
+    "/json-to-srt-converter-pwa/manifest.json",
+    "/json-to-srt-converter-pwa/icons/pwa-icon-512.png",
+    "/json-to-srt-converter-pwa/scripts/converter.js",
+    "/json-to-srt-converter-pwa/scripts/dom-handler.js",
+    "/json-to-srt-converter-pwa/scripts/cache-worker.js"
 ];
 
 async function precache() {
