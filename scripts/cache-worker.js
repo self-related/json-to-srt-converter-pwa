@@ -54,7 +54,12 @@ async function fetchCacheFirst(request) {
 
 
 self.addEventListener("install", (event) => {
+    self.skipWaiting();
     event.waitUntil(precache());
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(self.clients.claim());
 });
 
 
