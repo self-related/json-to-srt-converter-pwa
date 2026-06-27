@@ -14,22 +14,51 @@ const precachedResources = [
 async function precache() {
     const cache = await caches.open(pwaCache);
     await cache.addAll(precachedResources);
+
+    console.log("pre-cache complete");
+}
+
+/**@param {Response} response */
+function spoofResponse(response) {
+    const clonedResponse = response.clone()
+
+    const headers = new Headers(clonedResponse.headers);
+    headers.set("Cache-Control", "max-age=31536000");
+    headers.delete("Expires");
+
+    const spoofedResponse = new Response(clonedResponse.body, {
+        status: clonedResponse.status,
+        statusText: clonedResponse.statusText,
+        headers
+    });
+
+    console.log("Response spoofed");
+    
+    return spoofedResponse;
 }
 
 
 /**@type { function(Request): Response } */
 async function fetchCacheFirst(request) {
     const cachedResponse = await caches.match(request, { ignoreSearch: true, ignoreVary: true });
-    if (cachedResponse) return cachedResponse;
+    if (cachedResponse) {
+        console.log("Found in cache: " + cachedResponse.url);
+        
+        return spoofResponse(cachedResponse);
+    } 
 
+
+    console.log("Not found in cache: " + request.url);
+
+    
     // if not found in cache fetch and put in cache
     try {
-        const netResponse = await fetch(request); 
+        const netResponse = spoofResponse(await fetch(request)); 
         // only 200 can be put in cache
         if (netResponse.ok) {
             const cache = caches.open(pwaCache);
             await cache.put(request, netResponse.clone());
-        }        
+        }
         return netResponse;
     } catch (err) {
         return new Response(`Resources not found in cache, err: ${err}`, { status: 200, headers: { "Content-Type": "text/plain" } });        
@@ -38,10 +67,14 @@ async function fetchCacheFirst(request) {
 
 
 self.addEventListener("install", (event) => {
+    console.log("install event fired");
+
     event.waitUntil(precache());
 });
 
 
 self.addEventListener('fetch', (event) => {
+    console.log("Fetch event fired");
+
     event.respondWith(fetchCacheFirst(request));
 });
