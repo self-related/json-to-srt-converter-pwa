@@ -4,8 +4,6 @@ const precachedResources = [
     "/json-to-srt-converter-pwa/index.html",
     "/json-to-srt-converter-pwa/index.js",
     "/json-to-srt-converter-pwa/styles.css",
-    "/json-to-srt-converter-pwa/manifest.json",
-    "/json-to-srt-converter-pwa/icons/pwa-icon-512.png",
     "/json-to-srt-converter-pwa/icons/favicon.png",
     "/json-to-srt-converter-pwa/scripts/converter.js",
     "/json-to-srt-converter-pwa/scripts/dom-handler.js",
