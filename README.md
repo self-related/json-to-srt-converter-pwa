@@ -1,7 +1,10 @@
 # JSON to SRT converter
 Converts JSON subtitles used on bilibili.com to SRT format.
 
-[Open in browser](https://self-related.github.io/bilibili-subtitles-converter/)
+## Offline PWA application
+All app resources cached with service worker for offline usage. Manifest allows installing as PWA application.
+
+[Open in browser/Install PWA](https://self-related.github.io/json-to-srt-converter-pwa/)
 
 [JSON example](/subs-example.json)
 
