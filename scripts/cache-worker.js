@@ -17,23 +17,6 @@ async function precache() {
 }
 
 
-/**@type { function(Request) } */
-async function fetchNavigateCacheFirst(request) {
-    const indexResponse = await caches.match('/json-to-srt-converter-pwa/index.html', { ignoreSearch: true, ignoreVary: true });
-    if (indexResponse) return indexResponse;
-
-    const fallbackResponse = await caches.match(request, { ignoreSearch: true, ignoreVary: true });
-    if (fallbackResponse) return fallbackResponse;
-
-    try {
-        const netResponse = await fetch(request);
-        return netResponse;
-    } catch(err) {
-        return new Response(`Index not found in cache, error: ${err}`, { status: 200, headers: { "Content-Type": "text/plain" } });
-    }
-}
-
-
 /**@type { function(Request): Response } */
 async function fetchCacheFirst(request) {
     const cachedResponse = await caches.match(request, { ignoreSearch: true, ignoreVary: true });
@@ -55,22 +38,10 @@ async function fetchCacheFirst(request) {
 
 
 self.addEventListener("install", (event) => {
-    self.skipWaiting();
     event.waitUntil(precache());
-});
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
 });
 
 
 self.addEventListener('fetch', (event) => {
-    /**@type { Request } */
-    const request = event.request;
-    
-    if (request.mode === 'navigate') {
-        event.respondWith(fetchNavigateCacheFirst(request));
-    } else {
-        event.respondWith(fetchCacheFirst(request));
-    }
+    event.respondWith(fetchCacheFirst(request));
 });
