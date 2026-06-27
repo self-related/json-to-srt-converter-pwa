@@ -35,3 +35,13 @@ downloadBtn.onclick = () => {
 langInput.addEventListener('input', (event) => {
     language = event.currentTarget.value;
 });
+
+
+window.addEventListener("load", () => {
+    try {
+        navigator.serviceWorker.register("./cache-worker.js", { scope: "." });
+        console.log("Cache worker registered");
+    } catch (error) {
+        console.log("Error registering cache worker: " + error);
+    }
+});
