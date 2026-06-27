@@ -76,5 +76,5 @@ self.addEventListener("install", (event) => {
 self.addEventListener('fetch', (event) => {
     console.log("Fetch event fired");
 
-    event.respondWith(fetchCacheFirst(request));
+    event.respondWith(fetchCacheFirst(event.request));
 });
