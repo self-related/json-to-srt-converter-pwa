@@ -38,7 +38,7 @@ langInput.addEventListener('input', (event) => {
 
 window.addEventListener('load', async () => {
     try {
-        navigator.serviceWorker.register("/json-to-srt-converter-pwa/cache-worker.js", { scope: "/json-to-srt-converter-pwa/" });
+        navigator.serviceWorker.register("./cache-worker.js", { scope: "." });
         console.log("Cache worker registered");
     } catch (err) {
         console.error("Can't register cache worker. " + err);

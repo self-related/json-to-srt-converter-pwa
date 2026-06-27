@@ -18,25 +18,6 @@ async function precache() {
     console.log("pre-cache complete");
 }
 
-/**@param {Response} response */
-function spoofResponse(response) {
-    const clonedResponse = response.clone()
-
-    const headers = new Headers(clonedResponse.headers);
-    headers.set("Cache-Control", "max-age=31536000");
-    headers.delete("Expires");
-
-    const spoofedResponse = new Response(clonedResponse.body, {
-        status: clonedResponse.status,
-        statusText: clonedResponse.statusText,
-        headers
-    });
-
-    console.log("Response spoofed");
-    
-    return spoofedResponse;
-}
-
 
 /**@type { function(Request): Response } */
 async function fetchCacheFirst(request) {
@@ -44,7 +25,7 @@ async function fetchCacheFirst(request) {
     if (cachedResponse) {
         console.log("Found in cache: " + cachedResponse.url);
         
-        return spoofResponse(cachedResponse);
+        return cachedResponse;
     } 
 
 
@@ -53,7 +34,7 @@ async function fetchCacheFirst(request) {
     
     // if not found in cache fetch and put in cache
     try {
-        const netResponse = spoofResponse(await fetch(request)); 
+        const netResponse = await fetch(request); 
         // only 200 can be put in cache
         if (netResponse.ok) {
             const cache = caches.open(pwaCache);
