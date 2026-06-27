@@ -1,14 +1,14 @@
 const pwaCache = "pwa_cache";
 const precachedResources = [
-    "/json-to-srt-converter-pwa/",
-    "/json-to-srt-converter-pwa/index.html",
-    "/json-to-srt-converter-pwa/index.js",
-    "/json-to-srt-converter-pwa/styles.css",
-    "/json-to-srt-converter-pwa/icons/favicon.png",
-    "/json-to-srt-converter-pwa/icons/pwa-icon-512.png",
-    "/json-to-srt-converter-pwa/scripts/converter.js",
-    "/json-to-srt-converter-pwa/scripts/dom-handler.js",
-    "/json-to-srt-converter-pwa/cache-worker.js"
+    "./",
+    "./index.html",
+    "./index.js",
+    "./styles.css",
+    "./icons/favicon.png",
+    "./icons/pwa-icon-512.png",
+    "./scripts/converter.js",
+    "./scripts/dom-handler.js",
+    "./cache-worker.js"
 ];
 
 async function precache() {
