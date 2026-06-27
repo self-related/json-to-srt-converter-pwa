@@ -8,7 +8,7 @@ const precachedResources = [
     "/json-to-srt-converter-pwa/icons/pwa-icon-512.png",
     "/json-to-srt-converter-pwa/scripts/converter.js",
     "/json-to-srt-converter-pwa/scripts/dom-handler.js",
-    "/json-to-srt-converter-pwa/scripts/cache-worker.js"
+    "/json-to-srt-converter-pwa/cache-worker.js"
 ];
 
 async function precache() {
