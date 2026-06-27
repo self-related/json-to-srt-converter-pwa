@@ -37,7 +37,7 @@ async function fetchCacheFirst(request) {
         const netResponse = await fetch(request); 
         // only 200 can be put in cache
         if (netResponse.ok) {
-            const cache = caches.open(pwaCache);
+            const cache = await caches.open(pwaCache);
             await cache.put(request, netResponse.clone());
         }
         return netResponse;
